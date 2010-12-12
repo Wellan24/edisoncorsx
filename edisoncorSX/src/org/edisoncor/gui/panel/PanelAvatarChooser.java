@@ -24,7 +24,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
@@ -256,7 +255,6 @@ public class PanelAvatarChooser extends Panel {
         this.titulos = titulos;
     }
 
-
     private String getTextoAvatar(){
         try {
             return titulos.get(avatarIndex);
@@ -403,9 +401,9 @@ public class PanelAvatarChooser extends Panel {
         return exp_multiplier * Math.exp((-x * x) / exp_member);
     }
 
-    public void addAction(MouseListener action){
-        addMouseListener(action);
-    }
+//    public void addAction(MouseListener action){
+//        addMouseListener(action);
+//    }
 
     private void addInputListeners() {
         addMouseListener(focusGrabber);
@@ -790,10 +788,15 @@ public class PanelAvatarChooser extends Panel {
 
                 setAvatarIndex(index);
                 setPosition(0.0);
+
+//                JOptionPane.showMessageDialog(null, getSelectedtitulo());
                 return;
             }
 
             setPosition(newPosition);
+
+            System.out.println(" --- "+newPosition);
+            
         }
     }
 

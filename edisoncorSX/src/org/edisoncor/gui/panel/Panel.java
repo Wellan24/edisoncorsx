@@ -9,10 +9,13 @@ import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.LinearGradientPaint;
 import java.awt.Paint;
 import java.awt.RadialGradientPaint;
 import java.awt.RenderingHints;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -36,10 +39,8 @@ public class Panel extends JPanel{
     protected Gradiente gradiente= Gradiente.HORIZONTAL;
     protected Color colorPrimario = new Color(32,39,55);
     protected Color colorSecundario = Color.BLACK;
-
-    public Panel() {
-        setOpaque(false);
-    }
+    private Image image=null;
+    private Icon icon;
     
 
     @Override
@@ -48,12 +49,16 @@ public class Panel extends JPanel{
         Graphics2D g2 = (Graphics2D) g.create();
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
                 RenderingHints.VALUE_ANTIALIAS_ON);
-        Paint gp = getGradientePaint();
-        g2.setPaint(gp);
-        g2.fillRect(0, 0, getWidth(),getHeight());
-        g2.setColor(getForeground());
-        g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
+        if(image!=null)
+            g2.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+        else{
+            Paint gp = getGradientePaint();
+            g2.setPaint(gp);
+            g2.fillRect(0, 0, getWidth(),getHeight());
+            g2.setColor(getForeground());
+            g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING,
                 RenderingHints.VALUE_TEXT_ANTIALIAS_LCD_HRGB);
+        }
         g2.dispose();
         super.paintChildren(g);
     }
@@ -152,7 +157,15 @@ public class Panel extends JPanel{
         this.gradiente = gradiente;
     }
 
-    
+    public Icon getIcon() {
+        return icon;
+    }
+
+    public void setIcon(Icon icon){
+        this.icon=icon;
+        if(icon!=null)
+            image=((ImageIcon)icon).getImage();
+    }
 
     
 

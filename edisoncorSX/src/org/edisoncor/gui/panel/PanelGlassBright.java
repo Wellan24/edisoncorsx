@@ -27,7 +27,6 @@ public class PanelGlassBright extends JComponent {
     public PanelGlassBright(JFrame frame, float mixValue) {
         mainFrame= frame;
         setMixValue(mixValue);
-        setBackground(Color.WHITE);
         setOpaque(true);
         dialogo=false;
     }
@@ -35,7 +34,6 @@ public class PanelGlassBright extends JComponent {
     public PanelGlassBright(JDialog frame, float mixValue) {
         mainDialog= frame;
         setMixValue(mixValue);
-        setBackground(Color.WHITE);
         setOpaque(true);
         dialogo=true;
     }
