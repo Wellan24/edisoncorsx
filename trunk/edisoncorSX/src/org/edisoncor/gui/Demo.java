@@ -14,7 +14,9 @@ package org.edisoncor.gui;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
 import javax.swing.JOptionPane;
+import org.edisoncor.gui.panel.PanelAvatarChooser;
 import org.edisoncor.gui.panel.PanelGlassBright;
 import org.edisoncor.gui.panel.PanelGlassGaussian;
 import org.edisoncor.gui.panel.PanelGlassTinte;
@@ -58,6 +60,9 @@ public class Demo extends javax.swing.JFrame {
         panelAvatarChooser1.getTitulos().add("imagen 4");
         panelAvatarChooser1.getTitulos().add("imagen 5");
         panelAvatarChooser1.getTitulos().add("imagen 6");
+        panelAvatarChooser1.getTitulos().add("imagen 7");
+        panelAvatarChooser1.getTitulos().add("imagen 8");
+        panelAvatarChooser1.getTitulos().add("imagen 9");
 
         btntexto.addMouseListener(new MouseAdpaterBallon("Prueba de Ballon texto click para cerrar"));
         btnComponente.addMouseListener(new MouseAdpaterBallonCustom(panelNice6));
@@ -184,6 +189,7 @@ public class Demo extends javax.swing.JFrame {
         panel8 = new org.edisoncor.gui.panel.Panel();
         panel9 = new org.edisoncor.gui.panel.Panel();
         panelAvatarChooser1 = new org.edisoncor.gui.panel.PanelAvatarChooser();
+        jButton1 = new javax.swing.JButton();
         panelCurves1 = new org.edisoncor.gui.panel.PanelCurves();
         panelImage2 = new org.edisoncor.gui.panel.PanelImage();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
@@ -656,6 +662,7 @@ public class Demo extends javax.swing.JFrame {
 
         buttonTask1.setBackground(new java.awt.Color(246, 253, 149));
         buttonTask1.setToolTipText("Botones Demo");
+        buttonTask1.setCategorySmallFont(new java.awt.Font("Arial", 0, 12));
         buttonTask1.setContentAreaFilled(true);
 
         buttonTextDown2.setText("buttonTextDown2");
@@ -1182,15 +1189,28 @@ public class Demo extends javax.swing.JFrame {
 
         panelAvatarChooser1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Avatar_1003.jpg"))); // NOI18N
 
+        jButton1.setText("Accion");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelAvatarChooser1Layout = new javax.swing.GroupLayout(panelAvatarChooser1);
         panelAvatarChooser1.setLayout(panelAvatarChooser1Layout);
         panelAvatarChooser1Layout.setHorizontalGroup(
             panelAvatarChooser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 574, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAvatarChooser1Layout.createSequentialGroup()
+                .addContainerGap(496, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(20, 20, 20))
         );
         panelAvatarChooser1Layout.setVerticalGroup(
             panelAvatarChooser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 523, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAvatarChooser1Layout.createSequentialGroup()
+                .addContainerGap(481, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
         tabbedPaneRound1.addTab("Avatar", panelAvatarChooser1);
@@ -1827,7 +1847,7 @@ public class Demo extends javax.swing.JFrame {
                 .addComponent(clockFace1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(282, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel10Layout.createSequentialGroup()
-                .addContainerGap(81, Short.MAX_VALUE)
+                .addContainerGap(82, Short.MAX_VALUE)
                 .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65))
         );
@@ -2066,6 +2086,13 @@ public class Demo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, " no selected");
     }//GEN-LAST:event_popupColorActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(this, panelAvatarChooser1.getSelectedAvatar().getTitulo());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    
+    private void evento(){
+    }
     /**
     * @param args the command line arguments
     */
@@ -2127,6 +2154,7 @@ public class Demo extends javax.swing.JFrame {
     private org.edisoncor.gui.comboBox.ComboBoxRect comboBoxRect1;
     private org.edisoncor.gui.comboBox.ComboBoxRectIcon comboBoxRectIcon1;
     private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
