@@ -189,7 +189,7 @@ public class Demo extends javax.swing.JFrame {
         panel8 = new org.edisoncor.gui.panel.Panel();
         panel9 = new org.edisoncor.gui.panel.Panel();
         panelAvatarChooser1 = new org.edisoncor.gui.panel.PanelAvatarChooser();
-        jButton1 = new javax.swing.JButton();
+        btnAccion = new org.edisoncor.gui.button.ButtonAction();
         panelCurves1 = new org.edisoncor.gui.panel.PanelCurves();
         panelImage2 = new org.edisoncor.gui.panel.PanelImage();
         panelNice1 = new org.edisoncor.gui.panel.PanelNice();
@@ -1189,10 +1189,10 @@ public class Demo extends javax.swing.JFrame {
 
         panelAvatarChooser1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/Avatar_1003.jpg"))); // NOI18N
 
-        jButton1.setText("Accion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnAccion.setText("Accion");
+        btnAccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnAccionActionPerformed(evt);
             }
         });
 
@@ -1201,15 +1201,15 @@ public class Demo extends javax.swing.JFrame {
         panelAvatarChooser1Layout.setHorizontalGroup(
             panelAvatarChooser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAvatarChooser1Layout.createSequentialGroup()
-                .addContainerGap(496, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(20, 20, 20))
+                .addContainerGap(446, Short.MAX_VALUE)
+                .addComponent(btnAccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         panelAvatarChooser1Layout.setVerticalGroup(
             panelAvatarChooser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAvatarChooser1Layout.createSequentialGroup()
-                .addContainerGap(481, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addContainerGap(476, Short.MAX_VALUE)
+                .addComponent(btnAccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -1845,7 +1845,7 @@ public class Demo extends javax.swing.JFrame {
             .addGroup(panel10Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(clockFace1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel10Layout.createSequentialGroup()
                 .addContainerGap(82, Short.MAX_VALUE)
                 .addComponent(clockDigital1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1868,7 +1868,7 @@ public class Demo extends javax.swing.JFrame {
             .addGroup(jPanel12Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                .addContainerGap(105, Short.MAX_VALUE))
         );
         jPanel12Layout.setVerticalGroup(
             jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2086,13 +2086,10 @@ public class Demo extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, " no selected");
     }//GEN-LAST:event_popupColorActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnAccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccionActionPerformed
         JOptionPane.showMessageDialog(this, panelAvatarChooser1.getSelectedAvatar().getTitulo());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnAccionActionPerformed
 
-    
-    private void evento(){
-    }
     /**
     * @param args the command line arguments
     */
@@ -2105,6 +2102,7 @@ public class Demo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private org.edisoncor.gui.button.ButtonAction btnAccion;
     private org.edisoncor.gui.button.ButtonAction btnBright;
     private org.edisoncor.gui.button.ButtonAction btnComponente;
     private org.edisoncor.gui.button.ButtonAction btnGaussian;
@@ -2154,7 +2152,6 @@ public class Demo extends javax.swing.JFrame {
     private org.edisoncor.gui.comboBox.ComboBoxRect comboBoxRect1;
     private org.edisoncor.gui.comboBox.ComboBoxRectIcon comboBoxRectIcon1;
     private org.edisoncor.gui.comboBox.ComboBoxRound comboBoxRound1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;

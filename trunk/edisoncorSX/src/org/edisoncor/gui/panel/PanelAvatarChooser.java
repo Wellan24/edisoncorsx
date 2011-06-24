@@ -443,12 +443,12 @@ public class PanelAvatarChooser extends Panel{
         return avatares;
     }
 
-    public  void setAvatars(List<Avatar> imagenes) {
+    public  void setAvatars(List<Avatar> avatares) {
         avatars = new ArrayList<Avatar>();
         int j=0;
-        for (Avatar avatar : imagenes) {
+        for (Avatar avatar : avatares) {
             avatars.add(new Avatar(avatar.getId(),avatar.getTitulo(),createReflectedPicture((BufferedImage) avatar.getImage())));
-            if (j == (imagenes.size() / 2) + avatarAmount / 2) {
+            if (j == (avatares.size() / 2) + avatarAmount / 2) {
                 setAvatarIndex(j - avatarAmount / 2);
                 startFader();
             }
