@@ -27,12 +27,15 @@ public class TransicionPanel extends javax.swing.JPanel implements TransitionTar
     private Vector<JPanel> paneles;
     private int delay = 1000;
     private boolean navegadorVisible=true;
+    private int desde = 0;
+    private int hasta = 0;
 
     /** Creates new form TransicionPanel */
     public TransicionPanel() {
         initComponents();
         paneles = new Vector<JPanel>();
         transitionPanel = new ScreenTransition(panel, this);
+        setNavegadorVisible(false);
     }
 
     public void addPanel(JPanel panel){
@@ -57,6 +60,14 @@ public class TransicionPanel extends javax.swing.JPanel implements TransitionTar
         btnDerecha = new org.edisoncor.gui.button.ButtonRect();
         btnIzquierda = new org.edisoncor.gui.button.ButtonRect();
 
+        addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                formMousePressed(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                formMouseReleased(evt);
+            }
+        });
         setLayout(new java.awt.BorderLayout());
 
         panel.setLayout(new java.awt.BorderLayout());
@@ -84,7 +95,7 @@ public class TransicionPanel extends javax.swing.JPanel implements TransitionTar
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBotonesLayout.createSequentialGroup()
                 .addComponent(btnIzquierda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 356, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 328, Short.MAX_VALUE)
                 .addComponent(btnDerecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         panelBotonesLayout.setVerticalGroup(
@@ -103,6 +114,14 @@ public class TransicionPanel extends javax.swing.JPanel implements TransitionTar
     private void btnDerechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDerechaActionPerformed
         derecha();
     }//GEN-LAST:event_btnDerechaActionPerformed
+
+    private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
+        presionar(evt);
+    }//GEN-LAST:event_formMousePressed
+
+    private void formMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseReleased
+        soltar(evt);
+    }//GEN-LAST:event_formMouseReleased
 
     public void derecha(){
         if(index<paneles.size()-1){
@@ -145,6 +164,22 @@ public class TransicionPanel extends javax.swing.JPanel implements TransitionTar
         panelBotones.setVisible(navegadorVisible);
         btnDerecha.setVisible(navegadorVisible);
         btnIzquierda.setVisible(navegadorVisible);
+    }
+    public void presionar(java.awt.event.MouseEvent evt){
+        if(evt.getButton()==1)
+            desde = evt.getX();
+        else
+            desde =0;
+    }
+
+    public void soltar(java.awt.event.MouseEvent evt){
+        if(evt.getButton()==1){
+            hasta = evt.getX();
+            if ((desde - hasta >= 50) & (desde > hasta))
+                derecha();
+            else if ((hasta - desde >= 50) & (desde < hasta))
+                izquierda();
+        }
     }
 
 }

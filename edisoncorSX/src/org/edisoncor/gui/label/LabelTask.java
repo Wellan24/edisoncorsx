@@ -384,6 +384,22 @@ public class LabelTask extends JLabel {
     zoommer.start();
 }
 
+    public Font getCategoryFont() {
+        return categoryFont;
+    }
+
+    public void setCategoryFont(Font categoryFont) {
+        this.categoryFont = categoryFont;
+    }
+
+    public Font getCategorySmallFont() {
+        return categorySmallFont;
+    }
+
+    public void setCategorySmallFont(Font categorySmallFont) {
+        this.categorySmallFont = categorySmallFont;
+    }
+
     public float getAnchoDeBorde() {
         return anchoDeBorde;
     }

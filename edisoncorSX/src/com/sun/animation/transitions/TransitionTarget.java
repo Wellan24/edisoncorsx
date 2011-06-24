@@ -44,6 +44,12 @@ public interface TransitionTarget {
      * sequence by using this method to kick off successive transitions.
      */
     public void transitionComplete();
-    
+
+
+    public void presionar(java.awt.event.MouseEvent evt);
+
+    public void soltar(java.awt.event.MouseEvent evt);
+
+
 }
 

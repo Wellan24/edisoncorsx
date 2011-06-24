@@ -45,12 +45,13 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.Timer;
+import org.edisoncor.gui.util.Avatar;
 
 
-public class PanelAvatarChooser extends Panel {
+public class PanelAvatarChooser extends Panel{
     private static final double ANIM_SCROLL_DELAY = 450;
 
-    private List<Image> avatars = null;
+    private List<Avatar> avatars = null;
 
     private boolean loadingDone = false;
 
@@ -205,7 +206,7 @@ public class PanelAvatarChooser extends Panel {
             AlphaComposite composite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER,
                                                                   (float) avatar.getAlpha());
             g2.setComposite(composite);
-            g2.drawImage(avatars.get(avatar.getIndex()),
+            g2.drawImage(avatars.get(avatar.getIndex()).getImage(),
                          (int) avatar.getX(), (int) avatar.getY(),
                          avatar.getWidth(), avatar.getHeight(), null);
         }
@@ -257,19 +258,19 @@ public class PanelAvatarChooser extends Panel {
 
     private String getTextoAvatar(){
         try {
-            return titulos.get(avatarIndex);
+            return avatars.get(avatarIndex).getTitulo();
         } catch (Exception e) {
             return "Avatar " + (avatarIndex+1);
         }
     }
 
-    public Image getSelectedAvatar(){
+    public Avatar getSelectedAvatar(){
         return getAvatars().get(avatarIndex);
     }
     
     public String getSelectedtitulo(){
         try {
-            return getTitulos().get(avatarIndex);
+            return getAvatars().get(avatarIndex).getTitulo();
         } catch (Exception e) {
             return "Avatar " + (avatarIndex+1);
         }
@@ -342,7 +343,7 @@ public class PanelAvatarChooser extends Panel {
             return;
         }
 
-        Image avatar = avatars.get(avatarIndex + offset);
+        Image avatar = avatars.get(avatarIndex + offset).getImage();
 
         int avatarWidth = avatar.getWidth(null);
         int avatarHeight = avatar.getHeight(null);
@@ -401,9 +402,7 @@ public class PanelAvatarChooser extends Panel {
         return exp_multiplier * Math.exp((-x * x) / exp_member);
     }
 
-//    public void addAction(MouseListener action){
-//        addMouseListener(action);
-//    }
+
 
     private void addInputListeners() {
         addMouseListener(focusGrabber);
@@ -432,23 +431,23 @@ public class PanelAvatarChooser extends Panel {
     }
 
 
-    private List<Image> getSampleAvatar(){
-        List<Image> imagenes = new ArrayList<Image>();
-        imagenes.add((BufferedImage) loadImage("/resources/task-view-photos.png"));
-        imagenes.add((BufferedImage) loadImage("/resources/task-logout.png"));
-        imagenes.add((BufferedImage) loadImage("/resources/task-create-trip.png"));
-        imagenes.add((BufferedImage) loadImage("/resources/shinybuttoncenterinv.png"));
-        imagenes.add((BufferedImage) loadImage("/resources/task-logout.png"));
-        imagenes.add((BufferedImage) loadImage("/resources/shinybutton.png"));
-        imagenes.add((BufferedImage) loadImage("/resources/task-create-trip.png"));
-        return imagenes;
+    private List<Avatar> getSampleAvatar(){
+        List<Avatar> avatares = new ArrayList<Avatar>();
+        avatares.add(new Avatar("Imagen 1",(BufferedImage) loadImage("/resources/task-view-photos.png")));
+        avatares.add(new Avatar("Imagen 2",(BufferedImage) loadImage("/resources/task-logout.png")));
+        avatares.add(new Avatar("Imagen 3",(BufferedImage) loadImage("/resources/task-create-trip.png")));
+        avatares.add(new Avatar("Imagen 4",(BufferedImage) loadImage("/resources/shinybuttoncenterinv.png")));
+        avatares.add(new Avatar("Imagen 5",(BufferedImage) loadImage("/resources/task-logout.png")));
+        avatares.add(new Avatar("Imagen 6",(BufferedImage) loadImage("/resources/shinybutton.png")));
+        avatares.add(new Avatar("Imagen 7",(BufferedImage) loadImage("/resources/task-create-trip.png")));
+        return avatares;
     }
 
-    public  void setAvatars(List<Image> imagenes) {
-        avatars = new ArrayList<Image>();
+    public  void setAvatars(List<Avatar> imagenes) {
+        avatars = new ArrayList<Avatar>();
         int j=0;
-        for (Image image : imagenes) {
-            avatars.add(createReflectedPicture((BufferedImage) image));
+        for (Avatar avatar : imagenes) {
+            avatars.add(new Avatar(avatar.getId(),avatar.getTitulo(),createReflectedPicture((BufferedImage) avatar.getImage())));
             if (j == (imagenes.size() / 2) + avatarAmount / 2) {
                 setAvatarIndex(j - avatarAmount / 2);
                 startFader();
@@ -458,7 +457,7 @@ public class PanelAvatarChooser extends Panel {
         loadingDone = true;
     }
 
-    public List<Image> getAvatars(){
+    public List<Avatar> getAvatars(){
         return avatars;
     }
 
@@ -791,15 +790,17 @@ public class PanelAvatarChooser extends Panel {
 
 //                JOptionPane.showMessageDialog(null, getSelectedtitulo());
                 return;
+
             }
 
             setPosition(newPosition);
 
-            System.out.println(" --- "+newPosition);
-            
+
         }
     }
-
+    
+    
+    
     private class CursorChanger extends MouseMotionAdapter {
         @Override
         public void mouseMoved(MouseEvent e) {
