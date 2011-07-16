@@ -108,6 +108,14 @@ public class GraphicsUtil {
         return thumb;
     }
     
+    public static Image loadImage(String fileName){
+        try {
+            return ImageIO.read(GraphicsUtil.class.getResource(fileName));
+        } catch (Exception e) {
+            return null;
+        }
+    }
+    
     public static BufferedImage createThumbnail(BufferedImage image, int newWidth, int newHeight) {
         int width = image.getWidth();
         int height = image.getHeight();

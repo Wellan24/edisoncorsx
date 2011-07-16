@@ -159,6 +159,16 @@ public class TransicionHorzontal extends javax.swing.JPanel implements Transitio
         }
     }
 
+    public int getDelay() {
+        return delay;
+    }
+
+    public void setDelay(int delay) {
+        this.delay = delay;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private org.edisoncor.gui.button.ButtonRect btnDerecha;
     private org.edisoncor.gui.button.ButtonRect btnIzquierda;

@@ -33,6 +33,9 @@ public class PanelImage extends JPanel{
     }
 
   
+    public void setImage(String fileName){
+        setIcon(new ImageIcon(getClass().getResource(fileName))); 
+    }
 
     public Icon getIcon() {
         return icon;
