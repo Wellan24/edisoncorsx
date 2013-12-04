@@ -11,6 +11,8 @@
 
 package org.edisoncor.gui.panel;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author edisoncor
@@ -31,67 +33,69 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelImage1 = new org.edisoncor.gui.panel.PanelImage();
-        panelTranslucidoComplete21 = new org.edisoncor.gui.panel.PanelTranslucidoComplete2();
+        panelAvatarChooser1 = new org.edisoncor.gui.panel.PanelAvatarChooser();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelImage1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/fondo.jpg"))); // NOI18N
-
-        panelTranslucidoComplete21.setInheritsPopupMenu(true);
-        panelTranslucidoComplete21.setInicial(1.0F);
-        panelTranslucidoComplete21.setTran(0.4F);
+        panelAvatarChooser1.setAmount(0);
+        panelAvatarChooser1.setColorPrimario(new java.awt.Color(55, 32, 46));
+        panelAvatarChooser1.setColorSecundario(new java.awt.Color(18, 40, 41));
+        panelAvatarChooser1.setGradiente(org.edisoncor.gui.panel.Panel.Gradiente.CIRCULAR);
+        panelAvatarChooser1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/fondo.jpg"))); // NOI18N
+        panelAvatarChooser1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelAvatarChooser1MouseClicked(evt);
+            }
+        });
 
         jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout panelTranslucidoComplete21Layout = new javax.swing.GroupLayout(panelTranslucidoComplete21);
-        panelTranslucidoComplete21.setLayout(panelTranslucidoComplete21Layout);
-        panelTranslucidoComplete21Layout.setHorizontalGroup(
-            panelTranslucidoComplete21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelTranslucidoComplete21Layout.createSequentialGroup()
-                .addGap(69, 69, 69)
+        javax.swing.GroupLayout panelAvatarChooser1Layout = new javax.swing.GroupLayout(panelAvatarChooser1);
+        panelAvatarChooser1.setLayout(panelAvatarChooser1Layout);
+        panelAvatarChooser1Layout.setHorizontalGroup(
+            panelAvatarChooser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAvatarChooser1Layout.createSequentialGroup()
+                .addContainerGap(423, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addContainerGap())
         );
-        panelTranslucidoComplete21Layout.setVerticalGroup(
-            panelTranslucidoComplete21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelTranslucidoComplete21Layout.createSequentialGroup()
-                .addContainerGap(116, Short.MAX_VALUE)
+        panelAvatarChooser1Layout.setVerticalGroup(
+            panelAvatarChooser1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAvatarChooser1Layout.createSequentialGroup()
+                .addContainerGap(273, Short.MAX_VALUE)
                 .addComponent(jButton1)
-                .addGap(74, 74, 74))
-        );
-
-        javax.swing.GroupLayout panelImage1Layout = new javax.swing.GroupLayout(panelImage1);
-        panelImage1.setLayout(panelImage1Layout);
-        panelImage1Layout.setHorizontalGroup(
-            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelImage1Layout.createSequentialGroup()
-                .addContainerGap(221, Short.MAX_VALUE)
-                .addComponent(panelTranslucidoComplete21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(182, 182, 182))
-        );
-        panelImage1Layout.setVerticalGroup(
-            panelImage1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelImage1Layout.createSequentialGroup()
-                .addGap(66, 66, 66)
-                .addComponent(panelTranslucidoComplete21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelImage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelAvatarChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelImage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelAvatarChooser1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, panelAvatarChooser1.getSelectedAvatar().getTitulo());
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void panelAvatarChooser1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAvatarChooser1MouseClicked
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, panelAvatarChooser1.getClickedAvatar().getTitulo());
+    }//GEN-LAST:event_panelAvatarChooser1MouseClicked
 
     /**
     * @param args the command line arguments
@@ -106,8 +110,7 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private org.edisoncor.gui.panel.PanelImage panelImage1;
-    private org.edisoncor.gui.panel.PanelTranslucidoComplete2 panelTranslucidoComplete21;
+    private org.edisoncor.gui.panel.PanelAvatarChooser panelAvatarChooser1;
     // End of variables declaration//GEN-END:variables
 
 }

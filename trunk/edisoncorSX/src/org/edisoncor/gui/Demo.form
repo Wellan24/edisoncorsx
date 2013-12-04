@@ -1,4 +1,4 @@
-<?xml version="1.1" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
@@ -536,6 +536,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -673,9 +674,9 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="buttonAeroRight1" alignment="0" pref="35" max="32767" attributes="0"/>
-                              <Component id="buttonAeroLeft1" alignment="0" pref="35" max="32767" attributes="0"/>
-                              <Component id="buttonAero1" alignment="0" pref="35" max="32767" attributes="1"/>
+                              <Component id="buttonAeroRight1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="buttonAeroLeft1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="buttonAero1" alignment="0" max="32767" attributes="1"/>
                               <Component id="buttonAction1" alignment="0" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -2309,7 +2310,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="progressBarRect1" alignment="0" pref="208" max="32767" attributes="1"/>
+                              <Component id="progressBarRect1" alignment="0" max="32767" attributes="1"/>
                               <Component id="progressBarRound1" alignment="0" min="-2" pref="208" max="-2" attributes="1"/>
                           </Group>
                           <EmptySpace pref="285" max="32767" attributes="0"/>
@@ -2757,13 +2758,13 @@
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Component id="textFieldRound1" alignment="0" max="32767" attributes="1"/>
                               <Component id="textField1" alignment="0" pref="41" max="32767" attributes="1"/>
-                              <Component id="textFieldRectImage1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="textFieldRectImage1" min="-2" pref="38" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="textFieldRoundBackground1" alignment="0" max="32767" attributes="1"/>
                               <Component id="textFieldRectIcon1" alignment="0" pref="41" max="32767" attributes="1"/>
-                              <Component id="textFieldRectBackground1" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                              <Component id="textFieldRectBackground1" min="-2" pref="36" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">

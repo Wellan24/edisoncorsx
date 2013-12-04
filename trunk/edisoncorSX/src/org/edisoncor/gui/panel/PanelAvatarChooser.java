@@ -47,7 +47,10 @@ import javax.imageio.ImageIO;
 import javax.swing.Timer;
 import org.edisoncor.gui.util.Avatar;
 
-
+/**
+ *
+ * @author edisoncor
+ */
 public class PanelAvatarChooser extends Panel{
     private static final double ANIM_SCROLL_DELAY = 450;
 
@@ -58,11 +61,12 @@ public class PanelAvatarChooser extends Panel{
     private Timer scrollerTimer = null;
     private Timer faderTimer = null;
 
-    private float veilAlphaLevel = 0.0f;
+    private final float veilAlphaLevel = 0.0f;
     private float alphaLevel = 0.0f;
     private float textAlphaLevel = 0.0f;
 
     private int avatarIndex;
+    private int avatarIndexClicked;
     private double avatarPosition = 0.0;
     private double avatarSpacing = 0.4;
     private int avatarAmount = 5;
@@ -85,6 +89,9 @@ public class PanelAvatarChooser extends Panel{
     private MouseWheelScroller wheelScroller;
     private KeyScroller keyScroller;
 
+    /**
+     * Crea un panel de avatar la cual se crea con sample de avatar
+     */
     public PanelAvatarChooser() {
         GridBagLayout layout = new GridBagLayout();
         setLayout(layout);
@@ -99,6 +106,10 @@ public class PanelAvatarChooser extends Panel{
 
     }
 
+    /**
+     *
+     * @param amount
+     */
     public void setAmount(int amount) {
         if (amount > avatars.size()) {
             throw new IllegalArgumentException("muchos avatars");
@@ -113,6 +124,10 @@ public class PanelAvatarChooser extends Panel{
         repaint();
     }
 
+    /**
+     *
+     * @param sigma
+     */
     public void setSigma(double sigma) {
         this.sigma = sigma;
         this.rho = 1.0;
@@ -123,6 +138,10 @@ public class PanelAvatarChooser extends Panel{
         repaint();
     }
 
+    /**
+     *
+     * @param avatarSpacing
+     */
     public void setSpacing(double avatarSpacing) {
         if (avatarSpacing < 0.0 || avatarSpacing > 1.0) {
             throw new IllegalArgumentException("El espacio debe ser  < 1.0 y > 0.0");
@@ -212,7 +231,12 @@ public class PanelAvatarChooser extends Panel{
         }
     }
 
-
+    /**
+     *
+     * Obtiene el indice del avatar
+     * 
+     * @return
+     */
     public int getAvatarIndex(){
         return avatarIndex;
     }
@@ -248,10 +272,22 @@ public class PanelAvatarChooser extends Panel{
         g2.setComposite(composite);
     }
 
+    /**
+     *
+     * Obtine un listado de titulos
+     * 
+     * @return list<String> 
+     */
     public List<String> getTitulos() {
         return titulos;
     }
 
+    /**
+     *
+     * Fija los titulos de los avatar del panel
+     * 
+     * @param <list> titulos
+     */
     public void setTitulos(List<String> titulos) {
         this.titulos = titulos;
     }
@@ -264,11 +300,55 @@ public class PanelAvatarChooser extends Panel{
         }
     }
 
+    /**
+     *
+     * Devuelve el avatar seleccionado
+     * 
+     * @return
+     */
     public Avatar getSelectedAvatar(){
         return getAvatars().get(avatarIndex);
     }
     
-    public String getSelectedtitulo(){
+    /**
+     *
+     * Devuelve el avatar que fue clickeado
+     * 
+     * @return avatar
+     */
+    public Avatar getClickedAvatar(){
+        return getAvatars().get(avatarIndexClicked);
+    }
+
+    /**
+     * 
+     * Devuelve el indice del avatar seleccionado
+     * 
+     * @return
+     */
+    public int getAvatarIndexClicked() {
+        return avatarIndexClicked;
+    }
+
+    /**
+     *
+     * Devuelve el incdice del avatar clickeado
+     * 
+     * @param avatarIndexClicked
+     */
+    public void setAvatarIndexClicked(int avatarIndexClicked) {
+        this.avatarIndexClicked = avatarIndexClicked;
+    }
+    
+    
+    
+    /**
+     *
+     * Devuleve el titulo seleccionado
+     * 
+     * @return
+     */
+    public String getSelectedTitulo(){
         try {
             return getAvatars().get(avatarIndex).getTitulo();
         } catch (Exception e) {
@@ -443,6 +523,12 @@ public class PanelAvatarChooser extends Panel{
         return avatares;
     }
 
+    /**
+     *
+     * Fija los avatares en el panel
+     * 
+     * @param avatares
+     */
     public  void setAvatars(List<Avatar> avatares) {
         avatars = new ArrayList<Avatar>();
         int j=0;
@@ -457,6 +543,11 @@ public class PanelAvatarChooser extends Panel{
         loadingDone = true;
     }
 
+    /**
+     *
+     * Devuelve el listado de avatareas
+     * @return List<Avatar>
+     */
     public List<Avatar> getAvatars(){
         return avatars;
     }
@@ -626,12 +717,12 @@ public class PanelAvatarChooser extends Panel{
 
     private class DrawableAvatar implements Comparable {
         private int index;
-        private double x;
-        private double y;
-        private int width;
-        private int height;
-        private double zOrder;
-        private double position;
+        private final double x;
+        private final double y;
+        private final int width;
+        private final int height;
+        private final double zOrder;
+        private final double position;
 
         private DrawableAvatar(int index,
                                double x, double y, int width, int height,
@@ -739,6 +830,7 @@ public class PanelAvatarChooser extends Panel{
 
             if (e.getButton() == MouseEvent.BUTTON1) {
                 DrawableAvatar avatar = getHitAvatar(e.getX(), e.getY());
+                setAvatarIndexClicked(avatar.index);
                 if (avatar != null && avatar.getIndex() != avatarIndex) {
                     scrollAndAnimate(avatar);
                 }
@@ -754,9 +846,9 @@ public class PanelAvatarChooser extends Panel{
     }
 
     private class AutoScroller implements ActionListener {
-        private double position;
-        private int index;
-        private long start;
+        private final double position;
+        private final int index;
+        private final long start;
 
         private AutoScroller(DrawableAvatar avatar) {
             this.index = avatar.getIndex();
