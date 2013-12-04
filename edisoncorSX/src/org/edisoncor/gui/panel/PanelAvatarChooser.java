@@ -336,7 +336,7 @@ public class PanelAvatarChooser extends Panel{
      * 
      * @param avatarIndexClicked
      */
-    public void setAvatarIndexClicked(int avatarIndexClicked) {
+    private void setAvatarIndexClicked(int avatarIndexClicked) {
         this.avatarIndexClicked = avatarIndexClicked;
     }
     
