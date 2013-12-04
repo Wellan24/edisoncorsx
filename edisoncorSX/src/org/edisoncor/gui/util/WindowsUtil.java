@@ -17,6 +17,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import javax.swing.JComponent;
 import javax.swing.SwingUtilities;
@@ -42,23 +43,28 @@ public class WindowsUtil {
 
     public static void makeWindowsOpacity(Window window, float factor){
         if(factor>=0 & factor<=1)
-            com.sun.awt.AWTUtilities.setWindowOpacity(window, factor);
+//            com.sun.awt.AWTUtilities.setWindowOpacity(window, factor);
+            window.setOpacity(factor);
+        
     }
 
     public static void makeWindowsShape(Window window, Shape shape){
-        com.sun.awt.AWTUtilities.setWindowShape(window, shape);
+        //com.sun.awt.AWTUtilities.setWindowShape(window, shape);
+        window.setShape(shape);
     }
 
     public static void makeWindowsShape(Window window,
             float x, float y, float w, float h, float arcw, float arch){
         Shape s = new RoundRectangle2D.Float(x, y, w, h, arcw, arch);
-        com.sun.awt.AWTUtilities.setWindowShape(window, s);
+        //com.sun.awt.AWTUtilities.setWindowShape(window, s);
+        window.setShape(s);
     }
 
     public static void makeWindowsShape(Window window,
             float x, float y, float w, float h){
         Shape s = new Rectangle2D.Float(x, y, w, h);
-        com.sun.awt.AWTUtilities.setWindowShape(window, s);
+        //com.sun.awt.AWTUtilities.setWindowShape(window, s);
+        window.setShape(s);
     }
   
 
@@ -69,8 +75,12 @@ public class WindowsUtil {
             Method method =
                     clazz.getMethod("setWindowOpaque", java.awt.Window.class, Boolean.TYPE);
             method.invoke(clazz, window, false);
-        } catch (Exception e) {
-            // silently ignore this exception.
+        } catch (ClassNotFoundException e) {
+        } catch (IllegalAccessException e) {
+        } catch (IllegalArgumentException e) {
+        } catch (NoSuchMethodException e) {
+        } catch (SecurityException e) {
+        } catch (InvocationTargetException e) {
         }
     }
 
@@ -125,11 +135,11 @@ public class WindowsUtil {
             }
 
             public void ancestorRemoved(AncestorEvent event) {
-                // no implementation.
+                // no implementado aún.
             }
 
             public void ancestorMoved(AncestorEvent event) {
-                // no implementation.
+                // no implementado aún.
             }
         };
     }

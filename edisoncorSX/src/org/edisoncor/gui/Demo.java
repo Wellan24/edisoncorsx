@@ -662,7 +662,7 @@ public class Demo extends javax.swing.JFrame {
 
         buttonTask1.setBackground(new java.awt.Color(246, 253, 149));
         buttonTask1.setToolTipText("Botones Demo");
-        buttonTask1.setCategorySmallFont(new java.awt.Font("Arial", 0, 12));
+        buttonTask1.setCategorySmallFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         buttonTask1.setContentAreaFilled(true);
 
         buttonTextDown2.setText("buttonTextDown2");
@@ -823,11 +823,11 @@ public class Demo extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(buttonNice2, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
                             .addComponent(buttonAqua7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, Short.MAX_VALUE)
-                            .addComponent(buttonNice3, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+                            .addComponent(buttonNice3, javax.swing.GroupLayout.Alignment.LEADING, 0, 1, Short.MAX_VALUE)
                             .addComponent(buttonNice4, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE)
                             .addComponent(buttonNice5, javax.swing.GroupLayout.Alignment.LEADING, 0, 0, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttonNice6, 0, 0, Short.MAX_VALUE)))
+                        .addComponent(buttonNice6, 0, 1, Short.MAX_VALUE)))
                 .addContainerGap(124, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -1783,12 +1783,14 @@ public class Demo extends javax.swing.JFrame {
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(textFieldRound1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                    .addComponent(textFieldRectImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(textFieldRectImage1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(textFieldRoundBackground1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(textFieldRectIcon1, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                    .addComponent(textFieldRectBackground1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(textFieldRectBackground1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(textFieldRoundImage1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1836,7 +1838,7 @@ public class Demo extends javax.swing.JFrame {
         );
 
         clockDigital1.setForeground(new java.awt.Color(153, 204, 255));
-        clockDigital1.setFont(new java.awt.Font("DejaVu Sans", 0, 48));
+        clockDigital1.setFont(new java.awt.Font("DejaVu Sans", 0, 48)); // NOI18N
 
         javax.swing.GroupLayout panel10Layout = new javax.swing.GroupLayout(panel10);
         panel10.setLayout(panel10Layout);
